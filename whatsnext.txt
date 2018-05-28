@@ -1,0 +1,2 @@
+change ffxiv_lottery()'s way of returning answer, use dict
+automatically choose max entry box and make it yellow

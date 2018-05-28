@@ -1,4 +1,5 @@
 def ffxiv_lottery(map):
+    text=""
     def expectation_of_sel(in_sel, out_sel):
         remains = []
         if len(in_sel) + len(out_sel) != 4:
@@ -73,9 +74,8 @@ def ffxiv_lottery(map):
         for i in all_sel:
             if i not in in_sel:
                 out_sel.append(i)
-        print(x,":%.2f"%expectation_of_sel(in_sel,out_sel))
-        
-map=[[0, 0, 0],
-     [7, 2, 5],
-     [6, 0, 0]]
-ffxiv_lottery(map)
+        #print(x,":%.2f"%expectation_of_sel(in_sel,out_sel))
+        text += str(x)
+        text += ":%.2f"%expectation_of_sel(in_sel,out_sel)
+        text += "\n"
+    return text
