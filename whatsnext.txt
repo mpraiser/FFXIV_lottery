@@ -1,2 +1,1 @@
-change ffxiv_lottery()'s way of returning answer, use dict
-automatically choose max entry box and make it yellow
+how to delete the dashed line in About menu?

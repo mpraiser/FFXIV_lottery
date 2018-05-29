@@ -1,5 +1,5 @@
 def ffxiv_lottery(map):
-    text=""
+    plan={}
     def expectation_of_sel(in_sel, out_sel):
         remains = []
         if len(in_sel) + len(out_sel) != 4:
@@ -12,7 +12,8 @@ def ffxiv_lottery(map):
             result = [10000, 36, 720, 360, 80, 252, 108, 72, 54, 180, 72, 180, 119, 36, 306, 1080, 144, 1800, 3600]
             return (result[x - 6])
     
-        case=[]
+        case = []
+        '''
         if len(in_sel) == 3:
             case.append(profit(sum(in_sel)))
         elif len(in_sel) == 2:
@@ -38,6 +39,18 @@ def ffxiv_lottery(map):
                             tgt.append(y)
                             tgt.append(z)
                             case.append(profit(sum(tgt)))
+        '''
+        def case_generate(tgt, max_len):
+            if len(tgt) < max_len:
+                for x in remains:
+                    if x not in tgt:
+                        tgt_new = tgt.copy()
+                        tgt_new.append(x)
+                        case_generate(tgt_new,max_len)
+            else:
+                case.append(profit(sum(tgt)))
+        case_generate(in_sel, 3)
+
         expectation = 0
         for x in case:
             expectation += x / len(case)
@@ -75,7 +88,8 @@ def ffxiv_lottery(map):
             if i not in in_sel:
                 out_sel.append(i)
         #print(x,":%.2f"%expectation_of_sel(in_sel,out_sel))
-        text += str(x)
+        '''text += str(x)
         text += ":%.2f"%expectation_of_sel(in_sel,out_sel)
-        text += "\n"
-    return text
+        text += "\n" '''
+        plan[x] = expectation_of_sel(in_sel, out_sel)
+    return plan
