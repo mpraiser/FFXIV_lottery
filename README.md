@@ -2,6 +2,7 @@
 a profit expectation calculator of tiny lottery in FFXIV  
 explanation of direction:  
 
+```
 |       |       |  
 |       |       |  
 |       |       |  
@@ -15,5 +16,6 @@ col1    col2    col3
   \       /  
     \   /  
 diag1   diag2  
+```
 
 improving MD writing
